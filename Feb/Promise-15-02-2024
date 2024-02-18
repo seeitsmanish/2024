@@ -1,0 +1,222 @@
+ApiCall1 . -> ApiCall2 -> ApiCall3 ... 
+
+
+makeApiCall1()
+    .then((data1) =>  makeApiCall2(data))
+    .then((data2) => makeApiCall3(data2))
+    .then((result) => result)
+    .catch((err) => console.error(err))
+
+
+
+
+
+const foo = (bool) => {
+    return new Promise((resolve, reject) => {
+        if(bool) {
+            resolve('success')
+        } else {
+            reject('error')
+        }     
+    })
+}
+
+
+makeApiCall() {
+    showLoader(true);
+    const start = performance.now();
+}
+
+makeApiCall()
+    .then((data) => {
+        ....
+    })
+    .catch((err) => {
+        ...
+        
+    })
+    .finally(() => {
+        const end = performance.now();
+        logApiResponseTime(end - start);
+        showLoader(false);
+    })
+
+foo(true)
+    .then((res1) => {
+        console.log(res1);
+        return 'hello';
+    })
+    .then((res2) => {
+        console.log(res2);
+        return 'hey';
+    })
+    .then((res3) => {
+        console.log(res3);
+        throw new Error('error here');
+    })
+    .then((res4) => {
+        console.log(res4);
+        return 'hola';
+    })
+    .catch((err) => {
+        console.log(err);
+       // return 'in catch'; // retun Promise.resolve('in catch');
+       throw err; // return Promise.reject(err);
+    })
+    .then((res5) => {
+        console.log(res5);
+    })
+    .finally(() => {
+        console.log('in finally'); // Promise.resolve();
+    })
+    .catch(() => foo(false))
+    .then(() => console.log('hello'))
+    .catch(() => console.log('catch 2'))
+    .finally(() => console.log('finally finally'));
+
+    --------------------------------------------
+
+    // H.W : Iterator protocol
+
+    @@Iterator / @@Iterable : for ... of, ...spread
+
+    const classTags = document.getElementsByClassName('color'); 
+
+    classTags // map, forEach, reduce, filter -> DOES NOT WORK -> Array like object -> @@Iterable
+
+    Array.from(classTags).map/forEach/,,,,
+
+    // Iterable object 
+
+    Arrays : Iterables + other functions in Array class 
+
+    function foo() {
+        console.log(arguments); // reserved 
+    }
+
+    const foo(...abc) => {
+
+    }
+
+    
+    // H.W : Program to take array of promises as input and it should execute them sequentially 
+
+
+    runInSequence([makeApiCall1(), makeApiCall2(), makeApiCall3().......]);
+
+
+    Promise.all
+    Promise.allSettled  // implment polyfill
+    Promise.any 
+    Promise.race 
+ApiCall1 . -> ApiCall2 -> ApiCall3 ... 
+
+
+makeApiCall1()
+    .then((data1) =>  makeApiCall2(data))
+    .then((data2) => makeApiCall3(data2))
+    .then((result) => result)
+    .catch((err) => console.error(err))
+
+
+
+
+
+const foo = (bool) => {
+    return new Promise((resolve, reject) => {
+        if(bool) {
+            resolve('success')
+        } else {
+            reject('error')
+        }     
+    })
+}
+
+
+makeApiCall() {
+    showLoader(true);
+    const start = performance.now();
+}
+
+makeApiCall()
+    .then((data) => {
+        ....
+    })
+    .catch((err) => {
+        ...
+        
+    })
+    .finally(() => {
+        const end = performance.now();
+        logApiResponseTime(end - start);
+        showLoader(false);
+    })
+
+foo(true)
+    .then((res1) => {
+        console.log(res1);
+        return 'hello';
+    })
+    .then((res2) => {
+        console.log(res2);
+        return 'hey';
+    })
+    .then((res3) => {
+        console.log(res3);
+        throw new Error('error here');
+    })
+    .then((res4) => {
+        console.log(res4);
+        return 'hola';
+    })
+    .catch((err) => {
+        console.log(err);
+       // return 'in catch'; // retun Promise.resolve('in catch');
+       throw err; // return Promise.reject(err);
+    })
+    .then((res5) => {
+        console.log(res5);
+    })
+    .finally(() => {
+        console.log('in finally'); // Promise.resolve();
+    })
+    .catch(() => foo(false))
+    .then(() => console.log('hello'))
+    .catch(() => console.log('catch 2'))
+    .finally(() => console.log('finally finally'));
+
+    --------------------------------------------
+
+    // H.W : Iterator protocol
+
+    @@Iterator / @@Iterable : for ... of, ...spread
+
+    const classTags = document.getElementsByClassName('color'); 
+
+    classTags // map, forEach, reduce, filter -> DOES NOT WORK -> Array like object -> @@Iterable
+
+    Array.from(classTags).map/forEach/,,,,
+
+    // Iterable object 
+
+    Arrays : Iterables + other functions in Array class 
+
+    function foo() {
+        console.log(arguments); // reserved 
+    }
+
+    const foo(...abc) => {
+
+    }
+
+    
+    // H.W : Program to take array of promises as input and it should execute them sequentially 
+
+
+    runInSequence([makeApiCall1(), makeApiCall2(), makeApiCall3().......]);
+
+
+    Promise.all
+    Promise.allSettled  // implment polyfill
+    Promise.any 
+    Promise.race 
