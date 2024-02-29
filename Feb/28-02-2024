@@ -1,0 +1,75 @@
+padding -> wrap container, inner -> margin
+gap -> 
+
+
+padding: 32px (inner)
+width : calc(100% - 64px); (inner)
+
+CSSTricks - margin vs padding 
+
+flexboxfroggy 
+
+
+<div class=parent>
+ <div class=child>
+ </div>
+</div>
+
+
+.parent {
+    display: flex;
+}
+
+.child {
+    // one way
+    display: flex;
+    align-self: center;
+    justify-self: center;
+
+    // second way
+    position: fixed;
+    top: 50%;
+    left: 50%;
+}
+
+top:
+left:
+
+
+
+
+#small {
+    margin-left: 500px;
+}
+
+
+z-index : stacking context;
+
+// ans: 200
+<div z-index: 100>
+    <div z-index: 5>
+    <div z-index: 300>
+</div>
+
+<div z-index: 200; position: relative>
+
+
+//
+class Executor {
+
+}
+const obj = new Executor([task1, task2, task3...]); // can be async and sync
+obj.run();
+obj.getState();  
+{
+    state: 'completed' | 'failed' | 'not_started' | 'in_progress' | 'paused',
+    tasks: ['completed', in_progress, not_started, failed]
+}
+obj.pause();
+obj.getState();
+obj.resume();
+
+
+obj.onComplete((results) => {
+    console.log({results})
+})
