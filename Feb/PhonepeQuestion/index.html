@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div id="container">
+        <div id="big">
+            
+        </div>
+        <div id="small">
+        </div>
+
+    </div>
+
+
+    <script>
+        const h1 = document.querySelector('#big').offsetHeight;
+        const h2 = document.querySelector('#small').offsetHeight;
+        const w1 = document.querySelector('#big').offwidth;
+        const w2 = document.querySelector('#small').offwidth;
+        document.querySelector('#container').style.height = Number(h1) + Number(h2) + 'px';
+        document.querySelector('#container').style.width = Number(w1) + Number(w2) + 'px';
+    </script>
+</body>
+</html>

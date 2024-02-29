@@ -21,6 +21,7 @@ flexboxfroggy
 }
 
 .child {
+    
     // one way
     display: flex;
     align-self: center;

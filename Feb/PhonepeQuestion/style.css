@@ -1,0 +1,49 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+#big {
+    height: 500px;
+    width: 500px;
+    border: 1px solid black;
+}
+
+
+#small {
+    height: 100px;
+    width: 100px;
+    border: 1px solid black;
+}
+
+/* one way */
+
+/* #container {
+    display: flex;
+}
+
+#big {
+    display: flex;
+    align-self: flex-start;
+    height: 500px;
+    width: 500px;
+    border: 1px solid black;
+}
+
+#small {
+    display: flex;
+    align-self:flex-end ;
+    height: 100px;  
+    width: 100px;
+    border: 1px solid black;
+} */
+
+
+
+/* second way */
+
+
+
+
