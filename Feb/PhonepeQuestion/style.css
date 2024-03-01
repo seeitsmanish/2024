@@ -9,6 +9,7 @@
     height: 500px;
     width: 500px;
     border: 1px solid black;
+    background-color: brown;
 }
 
 
@@ -16,11 +17,12 @@
     height: 100px;
     width: 100px;
     border: 1px solid black;
+    background-color: blueviolet;
 }
 
 /* one way */
 
-#container {
+/* #container {
     display: flex;
 }
 
@@ -30,7 +32,6 @@
     height: 500px;
     width: 500px;
     border: 1px solid black;
-    background-color: brown;
 }
 
 #small {
@@ -39,13 +40,30 @@
     height: 100px;  
     width: 100px;
     border: 1px solid black;
-    background-color: blueviolet;
-}
+} */
 
 
 
 /* second way */
 
 
+#container {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(2,1fr);
+}
+
+#big {
+    grid-column: 1/2;
+    grid-row: 1/2;
+    align-self: self-end;
+    justify-self: self-end;
+}
+#small {
+    grid-column: 2/3;
+    grid-row: 2/3;
+    align-self: self-start;
+    justify-self: self-start;
+}
 
 
