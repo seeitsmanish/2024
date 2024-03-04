@@ -47,7 +47,7 @@
 /* second way */
 
 
-#container {
+/* #container {
     display: grid;
     grid-template-columns: repeat(2,1fr);
     grid-template-rows: repeat(2,1fr);
@@ -64,6 +64,18 @@
     grid-row: 2/3;
     align-self: self-start;
     justify-self: self-start;
+} */
+
+/* third way */
+
+/* Put small into big */
+#big {
+    position: relative;
 }
 
+#small {
+    position: absolute;
+    left: calc(100%);
+    top: calc(100%);
+}
 
