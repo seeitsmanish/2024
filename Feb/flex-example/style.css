@@ -1,0 +1,11 @@
+#container {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.box {
+    height: 100px;
+    width: 100px;
+    background-color: aqua;
+}

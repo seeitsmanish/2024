@@ -5,10 +5,13 @@ async function executeSequentially(promiseArray) {
     promiseArray.forEach((promise) => {
  
         chain = chain
-                .then(() => promise())
-                .catch(() => promise())
+                .then(() => {
+                    return promise()
+                })
+                .catch(() => {
+                    return promise();
+                })
     })
- 
  
     return chain;
 }
@@ -16,11 +19,11 @@ async function executeSequentially(promiseArray) {
  
  
 const p1 = () =>  new Promise((res, rej) => {
-    console.log("P1")
+    console.log("P2")
     setTimeout(() => {
         console.log("p1 promise executed");
         res();
-    },10000)
+    },1000)
 })
  
 const p2 = () =>  new Promise((res, rej) => {
@@ -46,3 +49,7 @@ const arr = [p1, p2, p3];
 executeSequentially(arr).then(() => {
     console.log("All promises executed sequetially");
 })
+
+
+console.log()
+
