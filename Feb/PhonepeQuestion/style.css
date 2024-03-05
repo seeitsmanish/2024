@@ -75,7 +75,7 @@
 
 #small {
     position: absolute;
-    left: calc(100%);
-    top: calc(100%);
+    left: 100%;
+    top: 100%;
 }
 
