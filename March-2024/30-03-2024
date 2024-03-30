@@ -1,0 +1,71 @@
+CSS Variables 
+
+.bg-some_color {
+    background-color: var(--bg-color-dard)
+}
+
+.bg-input-warning {
+    background-color: var(--bg-warning);
+}
+
+
+global.css {
+    --red: #f0f0f0;
+    --blue: #414141;
+    --grey: 
+    --bg-warning: yellow;
+    --bg-warning : mustard;
+}
+
+ShadCN 
+---------------------------------
+
+
+getFormattedDateTime = (time: string) => {
+    ....
+
+}
+
+
+useFormateDateTime = (time: prop) => {
+    ...
+    return formattedTime;
+}
+
+More React -> Slow performance
+
+
+
+
+custom hooks: 
+
+
+
+
+ref vs state vs global variable 
+cuurent -> mutable/ DOM element -> persit
+
+
+let toShowInputError = false;
+
+const InputTextField = () => {
+    const toShowError = useRef(false);
+
+    ....'
+}
+
+
+<InputTextField ... />
+
+<InputTextField ... />
+
+<InputTextField ... />
+
+<InputTextField ... />
+
+<InputTextField ... />
+
+
+
+
+sendBeacon - analytics
