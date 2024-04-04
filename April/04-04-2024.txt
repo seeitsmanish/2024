@@ -1,0 +1,36 @@
+JWT / Token based 
+SAML 
+SSO 
+OAuth
+
+
+AuthN :
+    user to app authN
+    app to app authN (should this even be allowed / recommended?)
+
+
+AuthZ :
+    custom roles and groups management 
+    - admins / super admins 
+    - read access 
+    - write access 
+
+
+------
+
+React design pattern 
+
+Reactive 
+
+
+
+const { getError, getValue, formFields }  = useForm({name: '', phoneNumber: ''}, {
+    validateOn: 'blur' | 'change' | 'submit' | 'all',
+    ...
+
+})
+
+
+<input ref={formFields.name} onBlur={formFields.name.onBlur} onChange={formFields.name.onChange} />
+
+{getError('name') &&  <span>getError('name').message </span>}
