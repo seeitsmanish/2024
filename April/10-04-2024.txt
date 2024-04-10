@@ -1,0 +1,162 @@
+Solution Copied from net ---- Not original thinking
+
+const React = (function () {
+  let _state = [];
+  let idx = 0;
+
+  function useState(initVal) {
+    state = _state[idx] || initVal;
+
+    // closure 
+    let _idx = idx;
+
+    function setState(newVal) {
+      _state[_idx] = newVal;
+    }
+    idx++;
+
+    return [state, setState];
+  }
+
+  function render(component) {
+    idx = 0;
+    const a = component();
+    a.render();
+    return a;
+  }
+
+  return { useState, render };
+})();
+
+function Component() {
+  let [num, setNum] = React.useState(0);
+  
+  if(num < 2) {
+    setNum(num++);
+  }
+
+  let [color, setColor] = React.useState("pink");
+
+  return {
+    render: () => {
+      console.log(`Rendered with value ${num} ${color}`);
+    },
+    click: () => {
+      setNum(num + 1);
+    },
+    change: (color) => {
+      setColor(color);
+    },
+  };
+}
+
+let rendered = React.render(Component);
+rendered.click();
+rendered = React.render(Component);
+rendered.change("black");
+rendered = React.render(Component);
+
+
+----------------
+
+React() {
+    states: new Map();
+
+    function useState(initVal | initFn) {
+        stateUUID = getUUID(initVal || initFn); // stable hashing fn to return a uuid 
+        const currentState = states.get(stateUUID) ?? initVal ?? initFn();
+
+        function setState(val) {
+            states.set(stateUUID, val);
+            throttle(render, 200);
+        }
+
+        return [currentState, setState];
+    }
+}
+
+useEffect(cb, [val1, val2, val3...]);
+
+deepEquality implementation on array
+
+---------------------------
+
+https://github.com/Kanishk-Anand
+
+"use client"
+import { useState, useEffect } from "react";
+import axios from "axios";
+import { useRouter } from "next/navigation";
+import { useDispatch } from "react-redux";
+import { SET_USER_DATA } from "@/lib/features/user/userSlice";
+
+SET_USER_DATA : () => {
+    ....
+}
+
+SET_USER_DATA
+
+export default function Auth() {
+    const dispatch = useDispatch();
+    const router = useRouter();
+    const [tokenValid, setTokenValid] = useState(false);
+
+    useEffect(() => {
+        let token = window.localStorage.getItem("token");
+        if (!token) token = '';
+
+        async function verifyToken() {
+            try {
+                let response = await axios.get("http://localhost:3002/api/v1/auth", {
+                    headers: {
+                        token: `Bearer ${token}`,
+                    },
+                });
+
+                if (response?.data?.success && token && router.pathname=== '/home') {
+                    setTokenValid(true);
+                    // How to get params of requested URL
+                    // url -> /signup, login, 
+                    router.replace("/home");
+                    
+                    // NOT ALLOWED 
+                    dispatch(setUserData(response.data.data));
+                } else {
+                    token.replace('/signup')
+                    console.log("Invalid token");
+                }
+            } catch (error) {
+                if (token) 
+                window.localStorage.removeItem('token');
+                console.log('Error:');
+                console.error(error);
+            }
+        }
+        if(!token){
+            router.replace('/signup')
+        }
+    
+        token && verifyToken();
+
+        // Cleanup function
+        // return () => {
+        //     // Remove Axios request interceptor
+        //     axios.interceptors.request.eject();
+        // };
+    }, []); // Empty dependency array to run only once on component mount
+
+    return(
+        if(tokenVerified) {
+            return <div>{children}</div>;
+        } else {
+            return Verifying...;
+        }
+    )
+
+}
+
+function RootLayout() {}
+
+export withAuth(RootLayout); // High Order Component / Functions
+
+https://github.com/vanicee9/RedTask-Manager-Frontend
