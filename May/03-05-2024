@@ -1,0 +1,15 @@
+const oberserver = new IntersectionObserver(handleScroll, {
+    root: conteinerRef,
+    rootMargin: '350px',
+    threshold: 0.1;
+})
+-------------------------------
+
+useLayoutEffect 
+useImperativeHandler => practical usecase 
+
+"use" ? React 19 
+
+HTML streaming -> NextJS / React server components 
+    - NodeJS implement 
+HTML Buffering
