@@ -1,0 +1,30 @@
+Web performance :
+-----
+
+1. Network 
+    - HTML Streaming 
+    - Compression 
+        - Gzip, brotli, deflate 
+    - CDN 
+    
+
+2. Code 
+
+    Loading techniques :
+        - prefetch 
+            - low priority fetch resources and cache them
+        - preload 
+            - highest priority load resources 
+        - preconnect 
+            - network data cached from third party domains (like DNS resolution, tcp handshake)
+    
+    Code splitting :
+        - JS chunking based on routes (react router, nextjs)
+        - CSS chunking (could be based on routes / exports)
+        - Critical CSS  (optimising CRP)
+            - build time (using puppeteer)
+                <html> <style> ... </style> ...</html>
+            - run time (CSS-in-JS) React 
+                - EmotionJS
+                - Styled components 
+                - PandaJS 
